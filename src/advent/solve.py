@@ -1,6 +1,7 @@
 import click
-from advent.day1 import Day1
-from advent.solution import load_puzzle
+from advent.day01 import Day01
+from advent.day02 import Day02
+from advent.solution import load_input
 
 
 @click.command()
@@ -8,7 +9,9 @@ from advent.solution import load_puzzle
 def main(day: int) -> None:
     match day:
         case 1:
-            problem = Day1(load_puzzle("data/day01.txt"))
+            problem = Day01(load_input("data/day01.txt"))
+        case 2:
+            problem = Day02(load_input("data/day02.txt"))
     print(problem.solve_part1())
     print(problem.solve_part2())
 

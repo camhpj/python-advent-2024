@@ -15,7 +15,7 @@ class Solution(ABC):
         return
 
 
-def load_puzzle(path: str) -> str:
+def load_input(path: str) -> str:
     with open(path, "r") as f:
         data = f.read()
     return data

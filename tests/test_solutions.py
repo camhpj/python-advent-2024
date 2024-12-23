@@ -1,5 +1,6 @@
 from advent.day01 import Day01
 from advent.day02 import Day02
+from advent.day03 import Day03
 from advent.solution import load_input
 
 
@@ -13,3 +14,9 @@ def test_Day02() -> None:
     prob = Day02(load_input("tests/data/day02.txt"))
     assert prob.solve_part1() == 2
     assert prob.solve_part2() == 4
+
+
+def test_Day03() -> None:
+    prob = Day03(load_input("tests/data/day03.txt"))
+    assert prob.solve_part1() == 161
+    # assert prob.solve_part2() == 

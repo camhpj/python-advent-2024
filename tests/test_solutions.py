@@ -12,4 +12,4 @@ def test_Day01() -> None:
 def test_Day02() -> None:
     prob = Day02(load_input("tests/data/day02.txt"))
     assert prob.solve_part1() == 2
-    # assert prob.solve_part2()
+    assert prob.solve_part2() == 4

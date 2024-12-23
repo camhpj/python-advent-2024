@@ -13,4 +13,17 @@ class Day03(Solution):
         return total
 
     def solve_part2(self) -> int:
-        return 0
+        total = 0
+        do = True
+        for match in re.findall(r"(mul\((\d+),(\d+)\))|(do\(\))|(don't\(\))", self.input):
+            if match[3] == "do()":
+                do = True
+                continue
+            if match[4] == "don't()":
+                do = False
+                continue
+            if do:
+                x = int(match[1])
+                y = int(match[2])
+                total += x * y
+        return total

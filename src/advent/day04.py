@@ -46,22 +46,42 @@ class Day04(Solution):
 
     def solve_char_part2(self, t: np.ndarray, i: int, j: int) -> int:
         def check_equality(
-            x1: np.ndarray,
-            x2: np.ndarray,
-            y: np.ndarray = np.array(["M", "A", "S"]),
-            inverse: bool = False,
+            x: np.ndarray,
+            mask: np.ndarray,
         ) -> bool:
-            if inverse:
-                y = np.flip(y)
-            if all(x1 == y) and all(x2 == y):
+            result = (x == mask)
+            if result[0, 0] and result[0, 2] and result[1, 1] and result[2, 0] and result[2, 2]:
                 return True
             return False
 
         if t[i, j] != "A":
             return 0
-        z = t.shape[1] - 4
+        z = t.shape[1] - 2
+        mask1 = np.array([
+            ["M",".","M"],
+            [".","A","."],
+            ["S",".","S"],
+        ])
+        mask2 = np.array([
+            ["M",".","S"],
+            [".","A","."],
+            ["M",".","S"],
+        ])
+        mask3 = np.array([
+            ["S",".","M"],
+            [".","A","."],
+            ["S",".","M"],
+        ])
+        mask4 = np.array([
+            ["S",".","S"],
+            [".","A","."],
+            ["M",".","M"],
+        ])
 
         count = 0
+        for mask in [mask1, mask2, mask3, mask4]:
+            if (i >= 1) and (j >= 1) and (i <= z) and (j <= z) and check_equality(t[i-1:i+2,j-1:j+2], mask):
+                count += 1
         return count
 
     def solve(self, func: Callable) -> int:

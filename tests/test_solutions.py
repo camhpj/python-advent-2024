@@ -1,6 +1,7 @@
 from advent.day01 import Day01
 from advent.day02 import Day02
 from advent.day03 import Day03
+from advent.day04 import Day04
 from advent.solution import load_input
 
 
@@ -17,7 +18,13 @@ def test_Day02() -> None:
 
 
 def test_Day03() -> None:
-    prob = Day03("xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))")
+    prob = Day03(load_input("tests/data/day03_1.txt"))
     assert prob.solve_part1() == 161
-    prob = Day03("xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))")
+    prob = Day03(load_input("tests/data/day03_2.txt"))
     assert prob.solve_part2() == 48
+
+
+def test_Day04() -> None:
+    prob = Day04(load_input("tests/data/day04.txt"))
+    assert prob.solve_part1() == 18
+    # assert prob.solve_part2()

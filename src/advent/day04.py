@@ -1,7 +1,9 @@
+from typing import Callable
+
 import numpy as np
 
 from advent.solution import Solution
-from typing import Callable
+
 
 class Day04(Solution):
     def preprocess(self) -> np.ndarray:

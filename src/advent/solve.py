@@ -5,6 +5,7 @@ from advent.day02 import Day02
 from advent.day03 import Day03
 from advent.day04 import Day04
 from advent.day05 import Day05
+from advent.day06 import Day06
 from advent.solution import load_input
 
 
@@ -22,6 +23,8 @@ def main(day: int) -> None:
             prob = Day04(load_input("data/day04.txt"))
         case 5:
             prob = Day05(load_input("data/day05.txt"))
+        case 6:
+            prob = Day06(load_input("data/day06.txt"))
     print(prob.solve_part1())
     print(prob.solve_part2())
 

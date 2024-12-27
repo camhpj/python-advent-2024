@@ -21,7 +21,7 @@ def main(day: int) -> None:
         case 4:
             prob = Day04(load_input("data/day04.txt"))
         case 5:
-            prob  = Day05(load_input("data/day05.txt"))
+            prob = Day05(load_input("data/day05.txt"))
     print(prob.solve_part1())
     print(prob.solve_part2())
 

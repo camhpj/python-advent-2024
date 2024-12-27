@@ -13,31 +13,24 @@ class Day06(Solution):
         map_ = self.preprocess()
         i, j = np.ravel(np.where(map_ == "^"))
         for point in cycle(["N", "E", "S", "W"]):
-            d = 1
-            prev = i, j
-            while True:
+            while map_[i, j] != "#":
+                prev = i, j
+                map_[i, j] = "X"
                 match point:
                     case "N":
-                        x, y = i - d, j
+                        x, y = i - 1, j
                     case "E":
-                        x, y = i, j + d
+                        x, y = i, j + 1
                     case "S":
-                        x, y = i + d, j
+                        x, y = i + 1, j
                     case "W":
-                        x, y = i, j - d
+                        x, y = i, j - 1
                     case _:
                         raise ValueError()
-                d += 1
-                try:
-                    if map_[x, y] == "#":
-                        i, j = prev
-                        break
-                    else:
-                        map_[prev] = "X"
-                        map_[x, y] = "^"
-                        prev = x, y
-                except IndexError:
-                    return np.where(map_ == "X")[0].shape[0] + 1
+                i, j = x, y
+                if (i // map_.shape[0] != 0) or (j // map_.shape[1] != 0):
+                    return np.where(map_ == "X")[0].shape[0]
+            i, j = prev  # move back one
 
     def solve_part2(self) -> int:
         return 0

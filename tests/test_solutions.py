@@ -41,4 +41,4 @@ def test_Day05() -> None:
 def test_Day06() -> None:
     prob = Day06(load_input("tests/data/day06.txt"))
     assert prob.solve_part1() == 41
-    # assert prob.solve_part2() ==
+    assert prob.solve_part2() == 6
